@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Pablo Henrique </title>
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  
+<script>  
+  (function() {  
+    emailjs.init("SEU_USER_ID");  
+  })();  
+</script>
 </head>
 <body class="bg-gray-50">
    <!-- Header -->
@@ -134,6 +140,7 @@
       <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Minhas Habilidades</h2>
       <!-- Cards Habilidades-->
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+       
         <!-- Card 01 Habilidades-->
         <div class="p-6 bg-gray-50 rounded-lg text-center">
           <div class="text-4xl mb-4">Icone</div>
@@ -166,5 +173,35 @@
     </div>
   </section>
     <!--/ Habilidades Section-->
+
+    <!-- Contato Section-->
+      <section id="contato" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl fonte-bold text-center text-gray-900 mb-2">Entre em contato</h2>
+          <!-- Formulario Contato-->
+           <div class="max-w-2xl mx-auto">
+            <form action="" id="contat-form" class="space-y-6">
+              <div>
+                <label for="name" class="block text-gray-700 mb-2">Nome</label>
+                <input type="text" id="name" class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500">
+              </div>
+            
+              <div>
+                <label for="email" class="block text-gray-700 mb-2">E-mail</label>
+                <input type="email" id="email" class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500">
+              </div>
+              
+              <div>
+                <label for="message" class="block text-gray-700 mb-2">Mensagem</label>
+                <textarea id="message" class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500"></textarea>
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition duration-300">Enviar Mensagem</button>
+              </div>
+            </form>
+           </div>
+          <!--/ Formulario Contato-->
+        </div>
+      </section>
+    
+    <!--/ Contato Section-->
 </body>
 </html>
