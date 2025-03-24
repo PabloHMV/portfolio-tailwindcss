@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
       (function () {
-        emailjs.init("SEU_USER_ID");
+        emailjs.init("dcwZI4v0-884NuJIM");
       })();
     </script>
   </head>
@@ -245,28 +245,28 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <!-- Card 01 Habilidades-->
           <div class="p-6 bg-gray-50 rounded-lg text-center">
-            <div class="text-4xl mb-4">Icone</div>
+            <div class="text-4xl mb-4">💻</div>
             <h3 class="font-semibold text-gray-900">HTML/CSS</h3>
           </div>
           <!--/ Card 01 Habilidades-->
 
           <!-- Card 02 Habilidades-->
           <div class="p-6 bg-gray-50 rounded-lg text-center">
-            <div class="text-4xl mb-4">Icone</div>
+            <div class="text-4xl mb-4">⚡</div>
             <h3 class="font-semibold text-gray-900">HTML/CSS</h3>
           </div>
           <!--/ Card 02 Habilidades-->
 
           <!-- Card 03 Habilidades-->
           <div class="p-6 bg-gray-50 rounded-lg text-center">
-            <div class="text-4xl mb-4">Icone</div>
+            <div class="text-4xl mb-4">🚀</div>
             <h3 class="font-semibold text-gray-900">HTML/CSS</h3>
           </div>
           <!--/ Card 03 Habilidades-->
 
           <!-- Card 04 Habilidades-->
           <div class="p-6 bg-gray-50 rounded-lg text-center">
-            <div class="text-4xl mb-4">Icone</div>
+            <div class="text-4xl mb-4">🎨</div>
             <h3 class="font-semibold text-gray-900">HTML/CSS</h3>
           </div>
           <!--/ Card 04 Habilidades-->
@@ -291,6 +291,7 @@
                 type="text"
                 name="name"
                 id="name"
+                required
                 class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500"
               />
             </div>
@@ -301,6 +302,19 @@
                 type="email"
                 name="email"
                 id="email"
+                required
+                class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-gray-700 mb-2"
+                >Telefone</label
+              >
+              <input
+                type="phone"
+                name="phone"
+                id="phone"
                 class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500"
               />
             </div>
@@ -312,6 +326,7 @@
               <textarea
                 name="message"
                 id="message"
+                required
                 class="full px-4 py-2 border-gray-300 rounded-lg focus:outline-nome focus:ring-2 focus:ring-indigo-500"
               ></textarea>
               <button
@@ -335,16 +350,29 @@
 
     <!-- Scirpt enviar email via formulário-->
     <script>
-      document.getElementByI('contact-form').addEventListener('submit', function(event) {
-       event.preventDefaut();
-       console.log{
-        'Dados do formulário' , {
-          name: this.name.value,
-          email: this.email.value,
-          message: this.message.value,
-        };
-      };
-      })
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefaut();
+          console.log("Dados do formulário", {
+            name: this.name.value,
+            email: this.email.value,
+            message: this.message.value,
+            ph3one: this.phone.value,
+          });
+
+          emailjs.sendForm("service_u4xje1n", "template_ghvrauy", this).then(
+            function (response) {
+              console.log("Sucesso: ", response);
+              alert("Mensagem enviada com sucesso");
+              document.getElementById("contact-form").reset();
+            },
+            function (error) {
+              console.log("Erro", error);
+              alert("Ocorreu um erro ao enviar a mensagem. Tente novamente");
+            }
+          );
+        });
     </script>
   </body>
 </html>
